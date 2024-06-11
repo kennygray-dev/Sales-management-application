@@ -1,0 +1,202 @@
+
+
+.cart{
+  margin: 1rem auto;
+  padding: 0rem 3rem;
+  color: rgb(97, 96, 96);
+  display: flex;
+ 
+}
+
+
+
+.cart-topic{
+  font-size: 1.5rem;
+  color: #000;
+  text-align: start;
+  margin-bottom: 2rem;
+}
+
+.cart-item{
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid darkgrey;
+  padding: 2rem 1rem;
+  border-radius: 10px;
+  
+  
+}
+
+.cart-image{
+  width: 270px;
+  height: 300px;
+  border-radius: 10px;
+  border: 1px solid darkgray;
+}
+
+.cart-item-name{
+  text-align: start;
+  font-size: 1.5rem;
+  color: rgb(97, 96, 96);
+  margin-bottom: 1rem;
+}
+
+.cart-price{
+  text-align: start;
+  font-size: 1rem;
+  width: 12rem;
+  border-radius: 3px;
+  margin-left: 1rem;
+  font-weight: bold;
+  
+}
+
+.item-details{
+  width: 200px;
+  color: #000;
+}
+
+
+.cart-quantity-div{
+  display: flex;
+  gap: 1rem;
+ 
+}
+
+.cart-quantity-button{
+  width: 3rem;
+  height: 3rem;
+  background-color: #437e80;;
+  margin: 0px 10px;
+  color: white;
+  
+}
+
+.cart-quantity-button:hover{
+  border: 1px solid white;
+}
+
+.cart-quantity-button:active{
+  border: 1px solid black;
+ 
+}
+
+.quantity-button-container{
+  display: flex;
+  align-items: center;
+ 
+  margin-bottom: 1rem;
+  
+}
+
+.cart-item-total-price{
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  text-align: start;
+  font-weight: bold;
+  margin-left: 10px;
+  border-radius: 3px;
+  
+}
+
+.item-quantity{
+  margin: 0px 4px;
+  padding: 0px 2px;
+}
+
+.cart-remove{
+ margin-left: 1rem;
+ width: 7rem;
+ height: 2.5rem;
+ margin-top: 1.5rem;
+ color: white;
+ background-color: rgb(178, 11, 11);
+
+}
+
+.cart-remove:hover{
+  background-color: rgb(150, 10, 10);
+}
+
+
+.cart-remove:active{
+ background-color: rgb(248, 72, 72);
+}
+
+.remove-container{
+  display: flex;
+  
+  
+}
+
+.cart-total-all{
+  background-color: #000;
+  color: white;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  border: 0.5px solid gray;
+  padding: 1rem 1.3rem;
+  border-radius: 15px;
+  margin-left: 2rem;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+.form-label-div{
+  margin-bottom: 1rem;
+  display: flex;
+  text-align: start;
+}
+
+.form-topic{
+  color: #000;
+  text-align: start;
+  margin-bottom: 1rem;
+}
+
+.h3{
+  color: #000;
+  margin-bottom: 6px;
+}
+
+
+.form-input{
+  border-radius: 5px;
+  display: flex;
+  margin-top: 0.2rem;
+  padding: 0.9rem 0.7rem;
+  width: 22rem;
+  border:1px solid gray;
+}
+
+.place-order-button{
+  display: flex;
+  width: 23rem;
+  display: flex;
+  height: 3rem;
+  justify-content: center;
+  align-items: center;
+  background-color:#437e80;;
+  color: white;
+}
+
+.place-order-button:hover{
+  background-color: #000;
+  border: 1px solid rgb(178, 11, 11);
+  transition: 200ms;
+}
+
+.place-order-button:active{
+  background-color: gray;
+}
+
+span{
+  color:  rgb(248, 72, 72);;
+}
+
