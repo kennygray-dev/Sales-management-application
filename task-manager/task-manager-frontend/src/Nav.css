@@ -1,0 +1,74 @@
+/* Navigation Bar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  
+  min-width: 20rem;
+}
+
+
+/* Navigation Links */
+nav a {
+  color: #444;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  background: rgb(234, 240, 234);
+  padding: 8px 15px;
+  border-radius: 6px;
+  transition: background 0.3s ease-in-out;
+  border: 1px solid rgb(234, 240, 234);
+  margin-right: 20px;
+}
+
+nav a:hover {
+  border: 1px solid rgb(21, 53, 21);
+}
+
+/* Logout Button */
+nav button {
+  background: #b32323;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+nav button:hover {
+  border: 1px solid lightgray;
+  background: white;
+  transform: scale(1.05);
+}
+
+.theme-toggle-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease, transform 0.2s ease;
+  color: var(--icon-color); /* Use CSS variable for icon color */
+}
+
+.theme-toggle-button:hover {
+  transform: scale(1.1);
+}
+
+.theme-toggle-button:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle-button svg {
+  width: 18px; /* Slightly larger icon */
+  height: 18px;
+}

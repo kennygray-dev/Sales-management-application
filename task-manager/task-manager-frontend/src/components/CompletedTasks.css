@@ -1,0 +1,40 @@
+.completed-container {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+.completed-list {
+  list-style: none;
+  padding: 0;
+}
+
+.completed-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.task-title {
+  font-weight: bold;
+  color: #555;
+}
+
+.task-date {
+  font-size: 12px;
+  color: #888;
+}
+
+.completed-item:last-child {
+  border-bottom: none;
+}

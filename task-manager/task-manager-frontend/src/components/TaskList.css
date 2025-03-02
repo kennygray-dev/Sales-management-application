@@ -1,0 +1,8 @@
+.due-date{
+  color: gray;
+  margin-left: 1rem;
+}
+.completed {
+  text-decoration: line-through;
+  color: #888; /* Optional: Change the color of completed tasks */
+}
