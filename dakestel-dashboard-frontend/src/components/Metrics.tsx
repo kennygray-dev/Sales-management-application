@@ -24,13 +24,13 @@ const Metrics: React.FC = () => {
     const fetchData = async () => {
       try {
         setLoading(true); // Set loading to true before fetching data
-        const weeklySalesResponse = await axios.get("http://localhost:5000/api/orders/weekly-sales-data");
-        const totalSalesResponse = await axios.get("http://localhost:5000/api/orders/total-sales");
-        const totalRevenueResponse = await axios.get("http://localhost:5000/api/orders/total-revenue");
-        const totalCustomersResponse = await axios.get("http://localhost:5000/api/orders/total-customers");
-        const orderStatusResponse = await axios.get("http://localhost:5000/api/orders/order-status-summary");
-        const popularProductsResponse = await axios.get("http://localhost:5000/api/orders/popular-orders");
-        const newReturningCustomersresponse = await axios.get("http://localhost:5000/api/orders/new-returning-customers");
+        const weeklySalesResponse = await axios.get("https://dakestel-sales-management-application.onrender.com/api/orders/weekly-sales-data");
+        const totalSalesResponse = await axios.get("https://dakestel-sales-management-application.onrender.com/api/orders/total-sales");
+        const totalRevenueResponse = await axios.get("https://dakestel-sales-management-application.onrender.com/api/orders/total-revenue");
+        const totalCustomersResponse = await axios.get("https://dakestel-sales-management-application.onrender.com/api/orders/total-customers");
+        const orderStatusResponse = await axios.get("https://dakestel-sales-management-application.onrender.com/api/orders/order-status-summary");
+        const popularProductsResponse = await axios.get("https://dakestel-sales-management-application.onrender.com/api/orders/popular-orders");
+        const newReturningCustomersresponse = await axios.get("https://dakestel-sales-management-application.onrender.com/api/orders/new-returning-customers");
 
         setWeeklySalesData(weeklySalesResponse.data);
         setTotalSales(totalSalesResponse.data.totalSales);
