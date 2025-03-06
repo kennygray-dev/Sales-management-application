@@ -26,7 +26,7 @@ const CreateOrder: React.FC = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/products");
+        const response = await axios.get("https://dakestel-sales-management-application.onrender.com/api/products");
         setProducts(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -99,7 +99,7 @@ const CreateOrder: React.FC = () => {
     console.log("Payload being sent:", payload); // Debugging
 
     try {
-      const response = await axios.post("http://localhost:5000/api/orders", payload);
+      const response = await axios.post("https://dakestel-sales-management-application.onrender.comapi/orders", payload);
       alert("Order created successfully!");
       console.log(response.data);
       navigate("/orders"); // Redirect to the Orders page
