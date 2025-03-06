@@ -13,7 +13,7 @@ const Orders: React.FC = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/orders");
+        const response = await axios.get("https://dakestel-sales-management-application.onrender.com/api/orders");
         // Sort orders by latest first
         const sortedOrders = response.data.sort(
           (a: Order, b: Order) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
@@ -32,7 +32,7 @@ const Orders: React.FC = () => {
   // Handle status update
   const handleStatusUpdate = async (orderId: string, newStatus: "pending" | "completed") => {
     try {
-      await axios.put(`http://localhost:5000/api/orders/${orderId}`, { status: newStatus });
+      await axios.put(`https://dakestel-sales-management-application.onrender.com/api/orders/${orderId}`, { status: newStatus });
 
       alert("Order status updated successfully!");
 
@@ -53,7 +53,7 @@ const Orders: React.FC = () => {
     if (!window.confirm("Are you sure you want to delete this order?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/orders/${orderId}`);
+      await axios.delete(`https://dakestel-sales-management-application.onrender.com/api/orders/${orderId}`);
 
       alert("Order deleted successfully!");
       // Remove the order from local state
