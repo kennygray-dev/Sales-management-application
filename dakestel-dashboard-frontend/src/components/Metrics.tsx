@@ -117,7 +117,7 @@ const Metrics: React.FC = () => {
           <div className={styles.metricBox}>
             <FaShoppingCart className={styles.metricIcon} />
             <CountUp end={totalSales} duration={1.5} separator="," className={styles.countUpNumber} />
-            <h3>Orders Completed</h3>
+            <h3>Orders completed</h3>
           </div>
           <div className={styles.metricBox}>
             <FaCoins  className={styles.metricIcon} />
