@@ -99,7 +99,7 @@ const CreateOrder: React.FC = () => {
     console.log("Payload being sent:", payload); // Debugging
 
     try {
-      const response = await axios.post("https://dakestel-sales-management-application.onrender.comapi/orders", payload);
+      const response = await axios.post("https://dakestel-sales-management-application.onrender.com/api/orders", payload);
       alert("Order created successfully!");
       console.log(response.data);
       navigate("/orders"); // Redirect to the Orders page
