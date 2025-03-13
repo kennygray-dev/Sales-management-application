@@ -1,7 +1,7 @@
 Dakestel Admin Dashboard
 
 
-[![Dakestel Dashboard](assets/screenshot.png)](https://sales-management-application-1.onrender.com/)
+[![Dakestel Dashboard](assets/Dashboard.png)](https://sales-management-application-1.onrender.com/)
 
 
 https://raw.githubusercontent.com/kennygray-dev/Sales-management-application/0dcd3b26368c211cd3dbebd82adb2d39bcc6f49d/Dashboard.png
