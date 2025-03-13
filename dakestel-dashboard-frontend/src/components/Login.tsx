@@ -7,11 +7,13 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+    setLoading(true);
 
     try {
       const response = await axios.post("https://dakestel-sales-management-application.onrender.com/api/users/login", {
@@ -21,25 +23,25 @@ const Login: React.FC = () => {
 
       localStorage.setItem("token", response.data.token);
       alert("Login successful!");
-      navigate("/metrics"); // Redirect to Dashboard page after login
+      navigate("/metrics");
     } catch (error) {
       if (axios.isAxiosError(error)) {
         setError(error.response?.data?.message || "Invalid email or password. Please try again.");
       } else {
         setError("Something went wrong. Please try again later.");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="login-container">
       <div className="login-form">
-        
         <img src="/logo1.png" alt="Dakestel Logo" className="login-logo" />
-
-        
         <p>Please log in to continue</p>
         {error && <p className="error-message">{error}</p>}
+
         <form onSubmit={handleLogin}>
           <input
             type="email"
@@ -55,7 +57,16 @@ const Login: React.FC = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button type="submit">Login</button>
+
+          <button type="submit" disabled={loading}>
+            {loading ? (
+              <div className="loading-spinner">
+                <span className="spinner"></span> Wait a moment...
+              </div>
+            ) : (
+              "Login"
+            )}
+          </button>
         </form>
       </div>
     </div>
