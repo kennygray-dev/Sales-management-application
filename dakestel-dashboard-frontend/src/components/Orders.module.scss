@@ -1,43 +1,168 @@
+.ordersContainer {
+  padding: 2rem;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+}
+
+h1 {
+  color: #333;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.ordersList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  width: 100%;
+  padding-left: 0rem;
+  
+}
+
+.orderCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.95rem;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.orderCard p {
+  color: #555;
+  font-weight: 500;
+}
+
+.orderCard strong {
+  color: #222;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.statusSelect {
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #e3fcef;
+  color: #2d8659;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.statusSelect:hover {
+  background-color: #c8f7de;
+}
+
+.productList {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+.productList li {
+  color: #444;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+.productList li:last-child {
+  border-bottom: none;
+}
+
+.orderButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.button {
+  background: #007bff;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background: #0056b3;
+}
+
+.deleteButton {
+  background: #dc3545;
+}
+
+.deleteButton:hover {
+  background: #b02a37;
+}
+
+.receiptFooter {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #777;
+  border-top: 1px solid #ddd;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+}
+
+/* Mobile Responsive Styles */
 @media (max-width: 768px) {
   .ordersContainer {
-    padding: 1rem;
-    align-items: stretch;
+    padding: 0rem;
   }
 
   .ordersList {
-    grid-template-columns: 1fr; 
-    gap: 1rem;
+    grid-template-columns: 1fr;
   }
 
   .orderCard {
-    width: 100%; 
-    padding: 1rem;
-    font-size: 0.85rem; 
-    border-width: 1.5px;
+    width: 90%;
+    padding: 1.2rem;
+    font-size: 0.9rem;
   }
 
   h1 {
-    font-size: 1.5rem; 
+    font-size: 1.6rem;
   }
 
   .statusSelect {
     width: 100%;
-    padding: 0.5rem;
-    text-align: center;
   }
 
-  .orderButton {
+  .orderButtons {
     flex-direction: column;
     gap: 0.5rem;
   }
 
-  .downloadButton, .deleteButton {
+  .button {
     width: 100%;
     text-align: center;
-    padding: 8px;
-  }
-
-  .productList li {
-    font-size: 0.85rem;
   }
 }
