@@ -7,7 +7,7 @@
   background-color: #f5f5f5; /* Ash background */
   font-family: Arial, sans-serif;
   color: #333; /* Dark text for contrast */
-  
+  margin-left: 7%;
 }
 
 
@@ -66,7 +66,7 @@
   background: #ffffff; // White background
   padding: 20px;
   border-radius: 8px;
-  
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -289,6 +289,7 @@ h3 {
 // Responsive Design for Smaller Screens.
 @media (max-width: 768px) {
   .metricsContainer {
+    background-color: transparent; /* Ash background */
     flex-direction: column;
     padding: 10px;
     padding-top: 4rem;

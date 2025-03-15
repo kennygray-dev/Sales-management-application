@@ -27,7 +27,7 @@ h1 {
 }
 
 .orderCard {
-  background: white;
+  background: rgb(246, 246, 233);
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
@@ -36,6 +36,7 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   font-size: 0.95rem;
+  border: 1px solid gray;
 
   &:hover {
     transform: translateY(-3px);
@@ -64,6 +65,8 @@ h1 {
   cursor: pointer;
   text-align: center;
   transition: background-color 0.2s ease-in-out;
+  padding: 10px;
+  border-radius: 30px;
 }
 
 .statusSelect:hover {
@@ -104,7 +107,7 @@ h1 {
   color: white;
   font-size: 14px;
   font-weight: bold;
-  padding: 8px 12px;
+  padding: 12px 12px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -117,6 +120,9 @@ h1 {
 
 .deleteButton {
   background: #dc3545;
+  margin-top: 15px;
+  padding: 10px;
+  margin-right: 2rem;
 }
 
 .deleteButton:hover {
@@ -135,7 +141,7 @@ h1 {
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
   .ordersContainer {
-    padding: 0rem;
+    padding: 1.5rem;
   }
 
   .ordersList {
