@@ -3,7 +3,7 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background: white;
+  background: linear-gradient(135deg, rgba(245, 248, 247, 0.386), rgba(15, 76, 61, 0.641));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,9 +17,9 @@ body {
   align-items: center;
   width: 100%;
   height: 100vh;
-  background: white;
   padding: 1rem;
   height: 100vh;
+  
 }
 
 /* Logo */
@@ -31,13 +31,16 @@ body {
 
 /* Login Form */
 .login-form {
-  background: rgba(255, 255, 255, 0.15);
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   text-align: center;
   width: 100%;
   max-width: 380px;
+  background: linear-gradient(135deg, rgba(225, 225, 225, 0.1), rgba(225, 225, 225, 0));
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba (225, 225, 225, 0.18);
 }
 
 .login-form h2 {
