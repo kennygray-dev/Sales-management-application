@@ -131,13 +131,12 @@ const CreateOrder: React.FC = () => {
 
       {/* Customer Email */}
       <div>
-        <label>Customer Email:</label>
+        <label>Customer Email (optional):</label>
         <input
           type="email"
           name="customerEmail"
           value={formData.customerEmail}
           onChange={handleCustomerChange}
-          required
         />
       </div>
 
@@ -145,7 +144,7 @@ const CreateOrder: React.FC = () => {
       <div>
         <label>Customer Phone:</label>
         <input
-          type="text"
+          type="tel"
           name="customerPhone"
           value={formData.customerPhone}
           onChange={handleCustomerChange}
