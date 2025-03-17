@@ -179,9 +179,9 @@ const Orders: React.FC = () => {
         {filteredOrders.map((order) => (
           <li key={String(order._id)} className={styles.orderCard}>
             <div className={styles.orderHeader}>
-              <span className={`${styles.statusBadge} ${styles[order.status]}`}>
+              <span className={`${styles.statusBadge} `}>
                 {order.status === "pending" ? <FaHourglassHalf /> : <FaCheckCircle />}
-                {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
+                
               </span>
               <span className={styles.orderDate}>{new Date(order.createdAt).toLocaleDateString("en-GB")}</span>
             </div>
@@ -198,7 +198,7 @@ const Orders: React.FC = () => {
                   onChange={(e) =>
                     handleStatusUpdate(String(order._id), e.target.value as "pending" | "completed")
                   }
-                  className={`${styles.statusSelect} ${styles[order.status]}`}
+                 
                 >
                   <option value="pending">Pending</option>
                   <option value="completed">Completed</option>
