@@ -35,6 +35,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   color: #333; // Dark text for contrast
+  
 
   h1 {
     margin: 0;
@@ -42,6 +43,7 @@
     font-weight: bold;
     color: #2c3e50; // Dark olive green for emphasis
     text-align: start;
+    justify-self: start;
   }
 
   p {

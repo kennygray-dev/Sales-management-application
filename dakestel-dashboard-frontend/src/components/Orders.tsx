@@ -3,11 +3,16 @@ import axios from "axios";
 import { Order } from "../types";
 import styles from "./Orders.module.scss";
 import { jsPDF } from "jspdf";
+// Import icons
+import { FaFilter, FaDownload, FaTrash, FaClipboardList, FaCheckCircle, FaHourglassHalf, FaAngleDown } from "react-icons/fa";
 
 const Orders: React.FC = () => {
   const [orders, setOrders] = useState<Order[]>([]);
+  const [filteredOrders, setFilteredOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [filterStatus, setFilterStatus] = useState<"all" | "pending" | "completed">("all");
+  const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
 
   // Fetch orders from the backend
   useEffect(() => {
@@ -19,6 +24,7 @@ const Orders: React.FC = () => {
           (a: Order, b: Order) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
         );
         setOrders(sortedOrders);
+        setFilteredOrders(sortedOrders);
       } catch (error) {
         console.error("Error fetching orders:", error);
         setError("Failed to fetch orders. Please try again.");
@@ -28,6 +34,15 @@ const Orders: React.FC = () => {
     };
     fetchOrders();
   }, []);
+
+  // Apply filter when filterStatus changes
+  useEffect(() => {
+    if (filterStatus === "all") {
+      setFilteredOrders(orders);
+    } else {
+      setFilteredOrders(orders.filter(order => order.status === filterStatus));
+    }
+  }, [filterStatus, orders]);
 
   // Handle status update
   const handleStatusUpdate = async (orderId: string, newStatus: "pending" | "completed") => {
@@ -90,60 +105,129 @@ const Orders: React.FC = () => {
     doc.save(`Order_${order._id}.pdf`);
   };
 
+  // Toggle filter dropdown
+  const toggleFilterDropdown = () => {
+    setIsFilterOpen(!isFilterOpen);
+  };
+
+  // Handle filter selection
+  const handleFilterSelect = (status: "all" | "pending" | "completed") => {
+    setFilterStatus(status);
+    setIsFilterOpen(false);
+  };
+
   return (
     <div className={styles.ordersContainer}>
-      <h1>Orders</h1>
+      <h1><FaClipboardList className={styles.headerIcon} /> Orders</h1>
 
-      {loading && <p>Loading orders...</p>}
+      <div className={styles.filterContainer}>
+        <button 
+          className={styles.filterButton} 
+          onClick={toggleFilterDropdown}
+          aria-expanded={isFilterOpen}
+        >
+          <FaFilter /> Filter Orders <FaAngleDown className={isFilterOpen ? styles.rotated : ''} />
+        </button>
+        
+        {isFilterOpen && (
+          <div className={styles.filterDropdown}>
+            <button 
+              className={`${styles.filterOption} ${filterStatus === "all" ? styles.active : ''}`} 
+              onClick={() => handleFilterSelect("all")}
+            >
+              <FaClipboardList /> All Orders
+            </button>
+            <button 
+              className={`${styles.filterOption} ${filterStatus === "pending" ? styles.active : ''}`} 
+              onClick={() => handleFilterSelect("pending")}
+            >
+              <FaHourglassHalf /> Pending Orders
+            </button>
+            <button 
+              className={`${styles.filterOption} ${filterStatus === "completed" ? styles.active : ''}`} 
+              onClick={() => handleFilterSelect("completed")}
+            >
+              <FaCheckCircle /> Completed Orders
+            </button>
+          </div>
+        )}
+      </div>
+
+      {loading && <p className={styles.loadingMessage}>Loading orders...</p>}
       {error && <p className={styles.error}>{error}</p>}
 
+      <div className={styles.ordersSummary}>
+        <div className={styles.summaryCard}>
+          <span className={styles.summaryLabel}>Total Orders</span>
+          <span className={styles.summaryValue}>{orders.length}</span>
+        </div>
+        <div className={styles.summaryCard}>
+          <span className={styles.summaryLabel}>Pending Orders</span>
+          <span className={styles.summaryValue}>{orders.filter(order => order.status === "pending").length}</span>
+        </div>
+        <div className={styles.summaryCard}>
+          <span className={styles.summaryLabel}>Completed Orders</span>
+          <span className={styles.summaryValue}>{orders.filter(order => order.status === "completed").length}</span>
+        </div>
+      </div>
+
       <ul className={styles.ordersList}>
-        {orders.length === 0 && !loading && <p>No orders found.</p>}
+        {filteredOrders.length === 0 && !loading && (
+          <p className={styles.noOrders}>No {filterStatus !== "all" ? filterStatus : ""} orders found.</p>
+        )}
 
-        {orders.map((order) => (
+        {filteredOrders.map((order) => (
           <li key={String(order._id)} className={styles.orderCard}>
-            <p><strong>Customer:</strong> {order.customerName}</p>
-            <p><strong>Email:</strong> {order.customerEmail}</p>
-            <p><strong>Phone:</strong> {order.customerPhone}</p>
-            <p><strong>Total Amount:</strong> ₦{Number(order.totalAmount).toFixed(2)}</p>
-            <p>
-              <strong>Status:</strong>
-              <select
-                value={order.status}
-                onChange={(e) =>
-                  handleStatusUpdate(String(order._id), e.target.value as "pending" | "completed")
-                }
-                className={styles.statusSelect}
-              >
-                <option value="pending">Pending</option>
-                <option value="completed">Completed</option>
-              </select>
-            </p>
-            <p><strong>Transaction Date:</strong> {new Date(order.createdAt).toLocaleDateString("en-GB")}</p>
-
-
-            <p><strong>Products:</strong></p>
-            <ul>
-              {order.products.map((item) => {
-                const product = typeof item.product === "string" ? { name: "Unknown Product", _id: item.product } : item.product;
-                return (
-                  <li className="item-list" key={product._id}>
-                    {product.name} - {item.quantity}
-                  </li>
-                );
-              })}
-            </ul>
-            <div className={styles.orderButton}>
-            <button className={styles.deleteButton} onClick={() => handleDeleteOrder(String(order._id))}>
-              Delete
-            </button>
-
-            <button className={styles.downloadButton} onClick={() => generatePDF(order)}>
-              Download PDF
-            </button>
+            <div className={styles.orderHeader}>
+              <span className={`${styles.statusBadge} ${styles[order.status]}`}>
+                {order.status === "pending" ? <FaHourglassHalf /> : <FaCheckCircle />}
+                {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
+              </span>
+              <span className={styles.orderDate}>{new Date(order.createdAt).toLocaleDateString("en-GB")}</span>
+            </div>
+            
+            <div className={styles.orderDetails}>
+              <p><strong>Customer:</strong> {order.customerName}</p>
+              <p><strong>Email:</strong> {order.customerEmail}</p>
+              <p><strong>Phone:</strong> {order.customerPhone}</p>
+              <p><strong>Total Amount:</strong> ₦{Number(order.totalAmount).toFixed(2)}</p>
+              <div className={styles.statusSelectContainer}>
+                <strong>Status:</strong>
+                <select
+                  value={order.status}
+                  onChange={(e) =>
+                    handleStatusUpdate(String(order._id), e.target.value as "pending" | "completed")
+                  }
+                  className={`${styles.statusSelect} ${styles[order.status]}`}
+                >
+                  <option value="pending">Pending</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </div>
             </div>
 
+            <div className={styles.productsSection}>
+              <p><strong>Products:</strong></p>
+              <ul className={styles.productList}>
+                {order.products.map((item) => {
+                  const product = typeof item.product === "string" ? { name: "Unknown Product", _id: item.product } : item.product;
+                  return (
+                    <li key={product._id}>
+                      {product.name} - {item.quantity}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
             
+            <div className={styles.orderButtons}>
+              <button className={styles.downloadButton} onClick={() => generatePDF(order)}>
+                <FaDownload /> Download PDF
+              </button>
+              <button className={styles.deleteButton} onClick={() => handleDeleteOrder(String(order._id))}>
+                <FaTrash /> Delete
+              </button>
+            </div>
           </li>
         ))}
       </ul>

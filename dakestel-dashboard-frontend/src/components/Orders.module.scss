@@ -1,6 +1,6 @@
 .ordersContainer {
   padding: 2rem;
-  background-color: #f8f9fa;
+  background-color: #f8fafa;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -13,164 +13,167 @@ h1 {
   font-size: 2rem;
   font-weight: 600;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.headerIcon {
+  font-size: 1.8rem;
+  color: #2d8680
+}
+
+.filterContainer {
+  position: relative;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  max-width: 1100px;
+  z-index: 10;
+}
+
+.filterButton {
+  background: #2d8680;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  &:hover {
+    background: #1d6b66;
+  }
+}
+
+.filterDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 250px;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.filterOption {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  color: #444;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: background 0.2s ease;
+  
+  &:hover {
+    background: #f0f0f0;
+  }
+  
+  &.active {
+    background: #e3fcef;
+    color: #1d6b66;
+    font-weight: 600;
+  }
+}
+
+.rotated {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+.ordersSummary {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1100px;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.summaryCard {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.summaryLabel {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.summaryValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1d6b66;
 }
 
 .ordersList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.5rem;
   max-width: 1100px;
   width: 100%;
-  padding-left: 0rem;
-  
+  padding: 0;
+  list-style: none;
 }
 
 .orderCard {
-  background: rgb(241, 249, 227);
+  background: white;
   border-radius: 12px;
-  padding: 3%;
+  padding: 1.5rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  font-size: 0.95rem;
-  border: 1px solid gray;
-
+  gap: 1rem;
+  border: 1px solid #eaeaea;
+  
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   }
 }
 
-.orderCard p {
-  color: #555;
-  font-weight: 500;
-}
-
-.orderCard strong {
-  color: #222;
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-.statusSelect {
-  padding: 0.5rem;
-  border-radius: 8px;
-  border: none;
-  background-color: #e3fcef;
-  color: #2d8659;
-  font-weight: 600;
-  cursor: pointer;
-  text-align: center;
-  transition: background-color 0.2s ease-in-out;
-  padding: 10px;
-  border-radius: 30px;
-}
-
-.statusSelect:hover {
-  background-color: #c8f7de;
-}
-
-.productList {
-  list-style: none;
-  padding: 0;
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  border-top: 1px solid #ddd;
-  padding-top: 1rem;
-}
-
-.productList li {
-  color: #444;
-  font-weight: 500;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #eee;
-  font-size: 0.9rem;
-}
-
-.productList li:last-child {
-  border-bottom: none;
-}
-
-.orderButtons {
+.orderHeader {
   display: flex;
   justify-content: space-between;
-  margin-top: 1rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }
 
-.button {
-  background: #007bff;
-  color: white;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 12px 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.button:hover {
-  background: #0056b3;
-}
-
-.deleteButton {
-  background: #dc3545;
-  margin-top: 15px;
-  padding: 10px;
-  margin-right: 2rem;
-  color: white;
-}
-
-.deleteButton:hover {
-  background: #b02a37;
-}
-
-.receiptFooter {
-  text-align: center;
-  font-size: 0.85rem;
-  color: #777;
-  border-top: 1px solid #ddd;
-  margin-top: 1rem;
-  padding-top: 0.5rem;
-}
-
-/* Mobile Responsive Styles */
-@media (max-width: 768px) {
-  .ordersContainer {
-    padding: 1.5rem;
-  }
-
-  .ordersList {
-    grid-template-columns: 1fr;
-  }
-
-  .orderCard {
-    width: 90%;
-    padding: 1.2rem;
-    font-size: 0.9rem;
-  }
-
-  h1 {
-    font-size: 1.6rem;
-  }
-
-  .statusSelect {
-    width: 100%;
-  }
-
-  .orderButtons {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .button {
-    width: 100%;
-    text-align: center;
-    color: white;
-  }
-}
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  
+  &.pending {
+    background-color: #fff;
+  }}
