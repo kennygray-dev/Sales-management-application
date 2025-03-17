@@ -55,7 +55,7 @@
 .metricsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 2%;
+  gap: 3%;
 }
 
 .metricBox {
@@ -292,9 +292,10 @@ h3 {
     background-color: transparent; /* Ash background */
     flex-direction: column;
     padding: 10px;
-    padding-top: 4rem;
+    padding-top: 3rem;
     margin-left: 0rem;
     margin: 10px 10px;
+    margin-top: 0px;
   }
 
   .leftContainer,
