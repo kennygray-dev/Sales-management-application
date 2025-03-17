@@ -4,7 +4,7 @@
   display: flex;
   gap: 20px;
   padding: 20px;
-  background-color: #f5f5f5; /* Ash background */
+  background-color: #f5f5f592; /* Ash background */
   font-family: Arial, sans-serif;
   color: #333; /* Dark text for contrast */
   margin-left: 7%;
@@ -30,8 +30,8 @@
 
 // Greeting section
 .greetingContainer {
-  background: linear-gradient(135deg, #ffffff, #aed6c6); // White to light ash gradient
-  padding: 20px;
+  background: linear-gradient(135deg, #ffffff, #8ee3c1); // White to light ash gradient
+  padding: 2%;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   color: #333; // Dark text for contrast
@@ -55,7 +55,7 @@
 .metricsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
+  gap: 2%;
 }
 
 .metricBox {
@@ -64,7 +64,7 @@
   align-items: start;
   justify-content: center;
   background: #ffffff; // White background
-  padding: 20px;
+  padding: 7%;
   border-radius: 8px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -115,7 +115,7 @@ h3 {
 /* Popular Products Section */
 .popularProductsContainer {
   background-color: #ffffff; // White background
-  padding: 1.5rem;
+  padding: 3%;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   max-height: 220px;
@@ -153,7 +153,7 @@ h3 {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 0.75rem;
+  padding:3%;
   border-radius: 8px;
   transition: background 0.3s ease-in-out;
   background-color: #f5f5f5; // Ash background for items
@@ -198,7 +198,7 @@ h3 {
   background: #ffffff; 
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  padding: 20px;
+  padding: 3%;
   width: 50%; 
   transition: all 0.3s ease-in-out;
   height: 220px;
@@ -252,7 +252,7 @@ h3 {
 // Chart containers
 .chartContainer {
   background-color: #ffffff; 
-  padding: 20px;
+  padding: 3%;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   max-height: 250px;

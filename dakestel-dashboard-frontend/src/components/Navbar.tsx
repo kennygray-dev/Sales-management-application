@@ -20,18 +20,48 @@ const Navbar: React.FC = () => {
     navigate("/");
   };
 
-  if (location.pathname === "/") return null; 
+  if (location.pathname === "/") return null;
 
   return (
     <>
-      <nav className="navbar">
+      {/* Mobile Navigation */}
+      <nav className="navbar mobile-only">
         <FiMenu className="menu-icon" onClick={() => setIsOpen(true)} />
+      </nav>
+
+      {/* Desktop Navigation */}
+      <nav className="desktop-navbar">
+        <div className="desktop-navbar-container">
+          <img src="/logo1.png" alt="Dakestel Logo" className="desktop-logo" />
+          <div className="desktop-nav-links">
+            {location.pathname !== "/orders" && (
+              <Link to="/orders" className="desktop-nav-link">
+                <FiShoppingCart className="desktop-nav-icon" /> Orders
+              </Link>
+            )}
+            {location.pathname !== "/metrics" && (
+              <Link to="/metrics" className="desktop-nav-link">
+                <FiBarChart2 className="desktop-nav-icon" /> Dashboard
+              </Link>
+            )}
+            {location.pathname !== "/create-order" && (
+              <Link to="/create-order" className="desktop-nav-link">
+                <FiPlusCircle className="desktop-nav-icon" /> Create Order
+              </Link>
+            )}
+            {isAuthenticated && (
+              <button className="desktop-logout-button" onClick={handleLogout}>
+                <FiLogOut className="desktop-nav-icon" /> Logout
+              </button>
+            )}
+          </div>
+        </div>
       </nav>
 
       {/* Sidebar Navigation */}
       <div className={`sidebar ${isOpen ? "open" : ""}`}>
         <FiX className="close-icon" onClick={() => setIsOpen(false)} />
-        <img src="/logo1.png" alt="Dakestel Logo" className="sidebar-logo" /> {/* Logo in Sidebar */}
+        <img src="/logo1.png" alt="Dakestel Logo" className="sidebar-logo" />
         <ul>
           {location.pathname !== "/orders" && (
             <li>
@@ -55,7 +85,6 @@ const Navbar: React.FC = () => {
             </li>
           )}
         </ul>
-
         {isAuthenticated && (
           <button className="logout-button" onClick={handleLogout}>
             <FiLogOut className="logout-icon" /> Logout
