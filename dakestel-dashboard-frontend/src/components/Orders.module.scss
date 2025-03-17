@@ -1,6 +1,6 @@
 .ordersContainer {
   padding: 2rem;
-  background-color: #f8f9fa;
+  background-color: #f8fafa;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,7 +22,7 @@ h1 {
 
 .headerIcon {
   font-size: 1.8rem;
-  color: #2d8659;
+  color: #2d8680
 }
 
 .filterContainer {
@@ -34,7 +34,7 @@ h1 {
 }
 
 .filterButton {
-  background: #2d8659;
+  background: #2d8680;
   color: white;
   font-size: 1rem;
   font-weight: 600;
@@ -48,7 +48,7 @@ h1 {
   gap: 0.5rem;
   
   &:hover {
-    background: #236744;
+    background: #1d6b66;
   }
 }
 
@@ -84,7 +84,7 @@ h1 {
   
   &.active {
     background: #e3fcef;
-    color: #2d8659;
+    color: #1d6b66;
     font-weight: 600;
   }
 }
@@ -128,7 +128,7 @@ h1 {
 .summaryValue {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #2d8659;
+  color: #1d6b66;
 }
 
 .ordersList {
@@ -142,7 +142,7 @@ h1 {
 }
 
 .orderCard {
-  background: white;
+  background: rgb(235, 233, 233);
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
