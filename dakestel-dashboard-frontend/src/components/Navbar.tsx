@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
       {/* Desktop Navigation */}
       <nav className="desktop-navbar">
         <div className="desktop-navbar-container">
-          <img src="/logo1.png" alt="Dakestel Logo" className="desktop-logo" />
+          <img src="/icons/logo1-192x192.png" alt="Dakestel Logo" className="desktop-logo" />
           <div className="desktop-nav-links">
             {location.pathname !== "/orders" && (
               <Link to="/orders" className="desktop-nav-link">
@@ -61,7 +61,7 @@ const Navbar: React.FC = () => {
       {/* Sidebar Navigation */}
       <div className={`sidebar ${isOpen ? "open" : ""}`}>
         <FiX className="close-icon" onClick={() => setIsOpen(false)} />
-        <img src="/logo1.png" alt="Dakestel Logo" className="sidebar-logo" />
+        <img src="/icons/logo1-192x192.png" alt="Dakestel Logo" className="sidebar-logo" />
         <ul>
           {location.pathname !== "/orders" && (
             <li>
