@@ -38,7 +38,7 @@ const Login: React.FC = () => {
   return (
     <div className="login-container">
       <div className="login-form">
-        <img src="/logo1.png" alt="Dakestel Logo" className="login-logo" />
+      <img src="/icons/logo1-192x192.png" alt="Dakestel Logo" className="login-logo" />
         <p>Please log in to continue</p>
         {error && <p className="error-message">{error}</p>}
 
