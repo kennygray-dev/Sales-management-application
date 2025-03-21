@@ -22,7 +22,6 @@ const Login: React.FC = () => {
       });
 
       localStorage.setItem("token", response.data.token);
-      alert("Login successful!");
       navigate("/metrics");
     } catch (error) {
       if (axios.isAxiosError(error)) {
