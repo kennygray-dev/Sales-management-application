@@ -121,7 +121,7 @@ const OrderStatusChart: React.FC<{ data: OrderStatusCounts }> = ({ data }) => {
     { name: "Pending", value: data.pending },
     { name: "Completed", value: data.completed },
   ];
-  const COLORS = ["#ff9a9e", "#297e7c"];
+  const COLORS = ["#ED624E", "#95B8A4"];
   
   return (
     <div className={styles.chartContainer}>
@@ -169,8 +169,8 @@ const CustomerChart: React.FC<{ data: CustomerData[] }> = ({ data }) => (
           <Bar dataKey="count" fill="url(#gradient)" barSize={15} radius={[0, 8, 8, 0]} />
           <defs>
             <linearGradient id="gradient" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#a8e6cf" />
-              <stop offset="100%" stopColor="#297e7c" />
+              <stop offset="0%" stopColor="#FFC2F1" />
+              <stop offset="100%" stopColor="#BBB2EF" />
             </linearGradient>
           </defs>
         </BarChart>
